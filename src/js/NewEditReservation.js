@@ -11,7 +11,7 @@ class NewEditReservation extends React.Component {
 
         this.state = {
             home: this.props.reservation.home,
-            guest: this.props.reservation.guest
+            away: this.props.reservation.away
         };
 
         this.confirm = this.confirm.bind(this);
@@ -25,7 +25,7 @@ class NewEditReservation extends React.Component {
         this.props.createReservation(this.props.date, {
             isReserved: true,
             home: this.state.home,
-            guest: this.state.guest
+            away: this.state.away
         });
     }
 
@@ -39,7 +39,7 @@ class NewEditReservation extends React.Component {
     }
 
     changeAwayTeam (event) {
-        this.setState({ guest: event.target.value });
+        this.setState({ away: event.target.value });
     }
 
     render () {
@@ -74,8 +74,8 @@ class NewEditReservation extends React.Component {
                             id="awayTeam"
                             className="form-control"
                             type="text"
-                            name="guest"
-                            defaultValue={this.state.guest}
+                            name="away"
+                            defaultValue={this.state.away}
                             onChange={this.changeAwayTeam}
                         />
                     </div>

@@ -1,7 +1,19 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { timeSlots } from './data';
 
 class TableDetail extends React.Component {
+
+    printReservation (index) {
+        const tableSlot = this.props.table.reservations[index];
+        if (tableSlot.isReserved) {
+            return <span>
+                <i className="fa fa-calendar-check-o"/>
+                {` ${tableSlot.home} vs ${tableSlot.away}`}
+            </span>;
+        }
+        return null;
+    }
 
     printSchedule () {
         return timeSlots.map((date, index) => {
@@ -13,7 +25,7 @@ class TableDetail extends React.Component {
                 <i className="fa fa-clock-o"/>
                 &nbsp;{date}
                 <span className="float-right">
-                    {(this.props.table.reservations[index].isReserved) ? <i className="fa fa-calendar-check-o"/> : ""}
+                    {this.printReservation(index)}
                 </span>
             </a>
         });
@@ -26,6 +38,11 @@ class TableDetail extends React.Component {
         </div>);
     }
 }
+
+TableDetail.propTypes = {
+    table: PropTypes.object.isRequired,
+    selectDate: PropTypes.func.isRequired
+};
 
 export default TableDetail;
 
