@@ -17,6 +17,7 @@ class MainPage extends React.Component {
         this.selectTable = this.selectTable.bind(this);
         this.selectDate = this.selectDate.bind(this);
         this.createReservation = this.createReservation.bind(this);
+        this.cancelRegistration = this.cancelRegistration.bind(this);
     }
 
     selectTable (table) {
@@ -36,6 +37,15 @@ class MainPage extends React.Component {
         });
     }
 
+    cancelRegistration (date) {
+        const table = this.state.selectedTable;
+        table.reservations[date] = { isReserved: false };
+        this.setState({
+            selectTable: table,
+            selectedDate: null
+        });
+    }
+
     render () {
         return (
             <div className="row">
@@ -49,7 +59,11 @@ class MainPage extends React.Component {
                 <div className="col right-column">
                     {
                         (this.state.selectedDate === null)
-                            ? <TableDetail table={this.state.selectedTable} selectDate={this.selectDate}/>
+                            ? <TableDetail
+                                table={this.state.selectedTable}
+                                selectDate={this.selectDate}
+                                cancelRegistration={this.cancelRegistration}
+                            />
                             : <NewEditReservation
                                 date={this.state.selectedDate}
                                 reservation={this.state.selectedTable.reservations[this.state.selectedDate]}
