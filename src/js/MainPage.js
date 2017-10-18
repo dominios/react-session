@@ -13,6 +13,7 @@ class MainPage extends React.Component {
             selectedTable: tables[0],
             selectedDate: null
         };
+        
         this.selectTable = this.selectTable.bind(this);
         this.selectDate = this.selectDate.bind(this);
         this.createReservation = this.createReservation.bind(this);
