@@ -33,7 +33,7 @@ class TableDetail extends React.Component {
 
     render () {
         return (<div className="list-group schedule">
-            <h2>Time Slots</h2>
+            <h2>{`Time Slots for ${this.props.table.title}`}</h2>
             {this.printSchedule()}
         </div>);
     }

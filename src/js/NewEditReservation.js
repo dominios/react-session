@@ -47,7 +47,7 @@ class NewEditReservation extends React.Component {
             <div className="reservation-form">
 
                 <h2>
-                    {(this.props.reservation.isReserved ? "Edit reservation" : "New reservation")}: {timeSlots[this.props.date]}
+                    {(this.props.reservation.isReserved ? "Edit reservation" : "New reservation")}: {`${timeSlots[this.props.date]} at ${this.props.table.title}`}
                 </h2>
 
                 <form>
@@ -63,6 +63,7 @@ class NewEditReservation extends React.Component {
                             name="home"
                             defaultValue={this.state.home}
                             onChange={this.changeHomeTeam}
+                            autoComplete="off"
                         />
                     </div>
 
@@ -77,6 +78,7 @@ class NewEditReservation extends React.Component {
                             name="away"
                             defaultValue={this.state.away}
                             onChange={this.changeAwayTeam}
+                            autoComplete="off"
                         />
                     </div>
 
@@ -105,7 +107,8 @@ class NewEditReservation extends React.Component {
 
 NewEditReservation.propTypes = {
     reservation: PropTypes.object,
-    date: PropTypes.number.isRequired
+    date: PropTypes.number.isRequired,
+    table: PropTypes.object.isRequired
 };
 
 export default NewEditReservation;

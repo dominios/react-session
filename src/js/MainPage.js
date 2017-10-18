@@ -54,6 +54,7 @@ class MainPage extends React.Component {
                                 date={this.state.selectedDate}
                                 reservation={this.state.selectedTable.reservations[this.state.selectedDate]}
                                 createReservation={this.createReservation}
+                                table={this.state.selectedTable}
                             />
                     }
                 </div>
