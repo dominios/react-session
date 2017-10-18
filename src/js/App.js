@@ -12,7 +12,7 @@ class App extends React.Component {
                 <div className="row">
                     <div className="col">
                         <h1>
-                            Reservation system
+                            <i className="fa fa-soccer-ball-o"/> Reservation system
                         </h1>
                     </div>
                 </div>

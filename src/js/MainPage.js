@@ -39,7 +39,7 @@ class MainPage extends React.Component {
     render () {
         return (
             <div className="row">
-                <div className="col">
+                <div className="col left-column">
                     <TableMaster
                         tables={tables}
                         table={this.state.selectedTable}

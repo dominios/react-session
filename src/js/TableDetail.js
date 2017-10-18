@@ -10,8 +10,11 @@ class TableDetail extends React.Component {
                       className="list-group-item list-group-item-action"
                       onClick={() => this.props.selectDate(index)}
             >
-                {date} {(this.props.table.reservations[index].isReserved) ? "RESERVED" : ""}
-
+                <i className="fa fa-clock-o"/>
+                &nbsp;{date}
+                <span className="float-right">
+                    {(this.props.table.reservations[index].isReserved) ? <i className="fa fa-calendar-check-o"/> : ""}
+                </span>
             </a>
         });
     }

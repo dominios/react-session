@@ -19,7 +19,8 @@ class NewEditReservation extends React.Component {
         this.changeAwayTeam = this.changeAwayTeam.bind(this);
     }
 
-    confirm () {
+    confirm (e) {
+        e.preventDefault();
         this.props.createReservation(this.props.date, {
             isReserved: true,
             home: this.state.home,
@@ -27,7 +28,8 @@ class NewEditReservation extends React.Component {
         });
     }
 
-    cancel () {
+    cancel (e) {
+        e.preventDefault();
         this.props.createReservation(this.props.date, { isReserved: false });
     }
 
