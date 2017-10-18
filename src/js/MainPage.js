@@ -46,7 +46,7 @@ class MainPage extends React.Component {
                         selectTable={this.selectTable}
                     />
                 </div>
-                <div className="col">
+                <div className="col right-column">
                     {
                         (this.state.selectedDate === null)
                             ? <TableDetail table={this.state.selectedTable} selectDate={this.selectDate}/>

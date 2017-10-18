@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import { timeSlots } from "./data";
 
 class NewEditReservation extends React.Component {
 
@@ -43,13 +44,11 @@ class NewEditReservation extends React.Component {
 
     render () {
         return (
-            <div>
+            <div className="reservation-form">
 
-                <h3>
-                    {
-                        (this.props.reservation.isReserved) ? "Edit reservation" : "New reservation"
-                    }
-                </h3>
+                <h2>
+                    {(this.props.reservation.isReserved ? "Edit reservation" : "New reservation")}: {timeSlots[this.props.date]}
+                </h2>
 
                 <form>
 
@@ -105,7 +104,8 @@ class NewEditReservation extends React.Component {
 }
 
 NewEditReservation.propTypes = {
-    reservation: PropTypes.object
+    reservation: PropTypes.object,
+    date: PropTypes.number.isRequired
 };
 
 export default NewEditReservation;

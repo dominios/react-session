@@ -21,6 +21,7 @@ class TableDetail extends React.Component {
 
     render () {
         return (<div className="list-group schedule">
+            <h2>Time Slots</h2>
             {this.printSchedule()}
         </div>);
     }
