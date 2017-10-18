@@ -62,6 +62,8 @@ body {
   .schedule {
 
     .list-group-item-action {
+      padding: 5px 12px;
+      font-size: 14px;
       transition: all .3s;
       &:hover:not(.reserved) {
         color: $white;
