@@ -1,13 +1,18 @@
 import React from "react";
+import MainPage from "./MainPage";
 
-export default class App extends React.Component {
+class App extends React.Component {
 
     /**
      * App JSX structure.
      */
     render () {
-        return <div>
-            <h1>React Session Example App</h1>
-        </div>;
+        return (
+          <div className="container">
+            <MainPage  />
+          </div>
+      );
     }
 }
+
+export default App;

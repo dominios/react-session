@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/eslint src/**/*.js && ./node_modules/.bin/webpack-dev-server --progress --colors --inline --port 8088"
+    "start": "./node_modules/.bin/webpack-dev-server --progress --colors --inline --port 8088"
   },
   "author": "Dominik Gersak, Martin Homola",
   "license": "ISC",
