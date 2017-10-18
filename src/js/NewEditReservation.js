@@ -10,8 +10,8 @@ class NewEditReservation extends React.Component {
         console.log(this.props);
 
         this.state = {
-            home: this.props.reservation.home,
-            away: this.props.reservation.away
+            home: this.props.reservation.home || '',
+            away: this.props.reservation.away || ''
         };
 
         this.confirm = this.confirm.bind(this);
@@ -87,6 +87,7 @@ class NewEditReservation extends React.Component {
                         <button
                             className="btn btn-primary"
                             onClick={this.confirm}
+                            disabled={!this.state.home.length || !this.state.away.length}
                         >
                             <i className="fa fa-check"/> Confirm reservation
                         </button>
