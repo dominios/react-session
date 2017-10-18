@@ -1,54 +1,81 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 class NewEditReservation extends React.Component {
 
-  constructor(props){
-    super(props);
+    constructor (props) {
+        super(props);
 
-    console.log(this.props);
-    this.state = {host:this.props.reservation.host, guest:this.props.reservation.guest}
-    this.reserve = this.reserve.bind(this);
-    this.cancle = this.cancle.bind(this);
-    this.changeHost = this.changeHost.bind(this);
-    this.changeGuest = this.changeGuest.bind(this);
-  }
+        console.log(this.props);
 
-  reserve(){
-    this.props.createReservation(this.props.date, {isReserved:true,host: this.state.host,guest: this.state.guest})
-  }
+        this.state = {
+            home: this.props.reservation.home,
+            guest: this.props.reservation.guest
+        };
+        
+        this.confirm = this.confirm.bind(this);
+        this.cancel = this.cancel.bind(this);
+        this.changeHomeTeam = this.changeHomeTeam.bind(this);
+        this.changeAwayTeam = this.changeAwayTeam.bind(this);
+    }
 
-  cancle(){
-    this.props.createReservation(this.props.date, {isReserved:false});
-  }
+    confirm () {
+        this.props.createReservation(this.props.date, {
+            isReserved: true,
+            home: this.state.home,
+            guest: this.state.guest
+        });
+    }
 
-  changeHost(event){
-    this.setState({host:event.target.value})
-  }
+    cancel () {
+        this.props.createReservation(this.props.date, { isReserved: false });
+    }
 
-  changeGuest(event){
-    this.setState({guest:event.target.value})
-  }
+    changeHomeTeam (event) {
+        this.setState({ home: event.target.value });
+    }
 
-  render(){
-    return (
-      <div>
-        <h3>
-          {
-            (this.props.reservation.isReserved)?"Uprav registráciu":"Nová rezervácia?"
-          }
-        </h3>
-        <div>
-          <input type="text" name="host" value={this.state.host} placeholder="Domáci" onChange={this.changeHost}/>
-        </div>
-        <div>
-          <input type="text" name="guest" value={this.state.guest} placeholder="Hostia" onChange={this.changeGuest}/>
-        </div>
-        <div>
-          <button onClick={this.reserve} >Rezervuj</button>
-          <button onClick={this.cancle} >Zruš</button>
-        </div>
-      </div>
-    )
-  }
+    changeAwayTeam (event) {
+        this.setState({ guest: event.target.value });
+    }
+
+    render () {
+        return (
+            <div>
+                <h3>
+                    {
+                        (this.props.reservation.isReserved) ? "Edit reservation" : "New reservation"
+                    }
+                </h3>
+                <div>
+                    <input
+                        type="text"
+                        name="home"
+                        placeholder="Home"
+                        defaultValue={this.state.home}
+                        onChange={this.changeHomeTeam}
+                    />
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        name="guest"
+                        placeholder="Away"
+                        defaultValue={this.state.guest}
+                        onChange={this.changeAwayTeam}
+                    />
+                </div>
+                <div>
+                    <button onClick={this.confirm}>Confirm reservation</button>
+                    <button onClick={this.cancel}>Cancel</button>
+                </div>
+            </div>
+        )
+    }
 }
+
+NewEditReservation.propTypes = {
+    reservation: PropTypes.object
+};
+
 export default NewEditReservation;
