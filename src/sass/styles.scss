@@ -63,9 +63,13 @@ body {
 
     .list-group-item-action {
       transition: all .3s;
-      &:hover {
+      &:hover:not(.reserved) {
         color: $white;
         background: theme-color("primary");
+      }
+      &.reserved {
+        color: #aaaaaa;
+        cursor: no-drop;
       }
     }
   }
