@@ -4,4 +4,38 @@
 body {
   background: #deeeee;
   color: #333333;
+
+  .table-detail {
+
+  }
+
+  .table-list {
+    background: #fff;
+
+    .row {
+
+      .col {
+
+        cursor: pointer;
+        transition: all .3s;
+        opacity: 0.3;
+
+        &.active,
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .schedule {
+
+    .list-group-item-action {
+      transition: all .3s;
+      &:hover {
+        color: $white;
+        background: theme-color("primary");
+      }
+    }
+  }
 }

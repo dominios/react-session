@@ -12,7 +12,7 @@ class NewEditReservation extends React.Component {
             home: this.props.reservation.home,
             guest: this.props.reservation.guest
         };
-        
+
         this.confirm = this.confirm.bind(this);
         this.cancel = this.cancel.bind(this);
         this.changeHomeTeam = this.changeHomeTeam.bind(this);
@@ -42,33 +42,61 @@ class NewEditReservation extends React.Component {
     render () {
         return (
             <div>
+
                 <h3>
                     {
                         (this.props.reservation.isReserved) ? "Edit reservation" : "New reservation"
                     }
                 </h3>
-                <div>
-                    <input
-                        type="text"
-                        name="home"
-                        placeholder="Home"
-                        defaultValue={this.state.home}
-                        onChange={this.changeHomeTeam}
-                    />
-                </div>
-                <div>
-                    <input
-                        type="text"
-                        name="guest"
-                        placeholder="Away"
-                        defaultValue={this.state.guest}
-                        onChange={this.changeAwayTeam}
-                    />
-                </div>
-                <div>
-                    <button onClick={this.confirm}>Confirm reservation</button>
-                    <button onClick={this.cancel}>Cancel</button>
-                </div>
+
+                <form>
+
+                    <div className="form-group">
+                        <label htmlFor="homeTeam">
+                            Home Team
+                        </label>
+                        <input
+                            id="homeTeam"
+                            className="form-control"
+                            type="text"
+                            name="home"
+                            defaultValue={this.state.home}
+                            onChange={this.changeHomeTeam}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="awayTeam">
+                            Away Team
+                        </label>
+                        <input
+                            id="awayTeam"
+                            className="form-control"
+                            type="text"
+                            name="guest"
+                            defaultValue={this.state.guest}
+                            onChange={this.changeAwayTeam}
+                        />
+                    </div>
+
+                    <div className="form-group">
+
+                        <button
+                            className="btn btn-primary"
+                            onClick={this.confirm}
+                        >
+                            <i className="fa fa-check"/> Confirm reservation
+                        </button>
+
+                        <button
+                            className="btn btn-secondary"
+                            onClick={this.cancel}
+                        >
+                            <i className="fa fa-ban"/> Cancel
+                        </button>
+                    </div>
+
+                </form>
             </div>
         )
     }

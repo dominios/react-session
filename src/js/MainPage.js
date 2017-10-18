@@ -40,7 +40,11 @@ class MainPage extends React.Component {
         return (
             <div className="row">
                 <div className="col">
-                    <TableMaster table={this.state.selectedTable} tables={tables} selectTable={this.selectTable}/>
+                    <TableMaster
+                        tables={tables}
+                        table={this.state.selectedTable}
+                        selectTable={this.selectTable}
+                    />
                 </div>
                 <div className="col">
                     {

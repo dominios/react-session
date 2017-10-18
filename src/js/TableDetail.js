@@ -5,17 +5,19 @@ class TableDetail extends React.Component {
 
     printSchedule () {
         return timeSlots.map((date, index) => {
-            return <div
-                key={index}
-                onClick={() => this.props.selectDate(index)}
+            return <a href="#"
+                      key={index}
+                      className="list-group-item list-group-item-action"
+                      onClick={() => this.props.selectDate(index)}
             >
                 {date} {(this.props.table.reservations[index].isReserved) ? "RESERVED" : ""}
-            </div>
+
+            </a>
         });
     }
 
     render () {
-        return (<div>
+        return (<div className="list-group schedule">
             {this.printSchedule()}
         </div>);
     }

@@ -24,6 +24,7 @@ export const timeSlots = [
 export const tables = [
     {
         img: "assets/table1.jpg",
+        title: "Allianz Arena",
         reservations: [
             { isReserved: false },
             { isReserved: false },
@@ -49,6 +50,7 @@ export const tables = [
     },
     {
         img: "assets/table2.jpg",
+        title: "Camp Nou",
         reservations: [
             { isReserved: false },
             { isReserved: false },
@@ -74,6 +76,7 @@ export const tables = [
     },
     {
         img: "assets/table3.jpg",
+        title: "San Siro",
         reservations: [
             { isReserved: false },
             { isReserved: false },

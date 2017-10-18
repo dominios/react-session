@@ -12,13 +12,18 @@ class TableMaster extends React.Component {
     tableList () {
         return this.props.tables.map((table, index) => {
             return (
-                <div className="col" key={index}>
-                    <a href="#" onClick={() => this.selectTable(table)}>
-                        <img
-                            style={{ maxHeight: 70 }}
-                            src={table.img}
-                        />
-                    </a>
+                <div
+                    key={index}
+                    className={`col ${this.props.table.title === table.title ? 'active' : ''}`}
+                    onClick={() => this.selectTable(table)}
+                >
+                    <img
+                        style={{ maxHeight: 70 }}
+                        src={table.img}
+                    />
+                    <div className="table-title">
+                        {table.title}
+                    </div>
                 </div>
             )
         })
@@ -31,15 +36,20 @@ class TableMaster extends React.Component {
     render () {
         return (
             <div>
-                <div className="row">
+
+                <div className="row table-detail">
                     <div className="col">
                         <img src={this.props.table.img}/>
                     </div>
                 </div>
-                <div className="row">
-                    {
-                        this.tableList()
-                    }
+
+                <div className="table-list">
+                    <h2>Available tables</h2>
+                    <div className="row">
+                        {
+                            this.tableList()
+                        }
+                    </div>
                 </div>
             </div>
         )
@@ -47,7 +57,8 @@ class TableMaster extends React.Component {
 }
 
 TableMaster.propTypes = {
-    tables: PropTypes.array.isRequired
+    tables: PropTypes.array.isRequired,
+    table: PropTypes.object.isRequired
 };
 
 export default TableMaster;
