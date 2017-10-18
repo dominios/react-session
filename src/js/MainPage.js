@@ -13,23 +13,27 @@ class MainPage extends React.Component {
             selectedTable: tables[0],
             selectedDate: null
         };
-        
+
         this.selectTable = this.selectTable.bind(this);
         this.selectDate = this.selectDate.bind(this);
         this.createReservation = this.createReservation.bind(this);
     }
 
     selectTable (table) {
-        this.setState({ selectedTable: table, selectedDate: null })
+        this.setState({ selectedTable: table, selectedDate: null });
     }
 
     selectDate (date) {
-        this.setState({ selectedDate: date })
+        this.setState({ selectedDate: date });
     }
 
     createReservation (date, value) {
-        this.state.selectedTable.reservations[date] = value;
-        this.setState({ selectedDate: null });
+        const table = this.state.selectedTable;
+        table.reservations[date] = value;
+        this.setState({
+            selectTable: table,
+            selectedDate: null
+        });
     }
 
     render () {

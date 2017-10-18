@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 class TableMaster extends React.Component {
 
@@ -44,5 +45,9 @@ class TableMaster extends React.Component {
         )
     }
 }
+
+TableMaster.propTypes = {
+    tables: PropTypes.array.isRequired
+};
 
 export default TableMaster;
